@@ -13,13 +13,9 @@ spec:
   - repoURL: 'https://argoproj.github.io/argo-helm'
     chart: argo-cd
     targetRevision: 7.8.11
-    helm:
-      valueFiles:
-      - $values/values/argo-cd.yaml
   - repoURL: git@github.com:jcdematos/argocd-lab.git
     targetRevision: develop
     ref: values
-  sources: []
   project: default
   syncPolicy:
     automated:
