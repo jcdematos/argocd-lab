@@ -16,7 +16,7 @@ spec:
     helm:
       valueFiles:
       - $values/values/argo-cd.yaml
-  - repoURL:
+  - repoURL: git@github.com:jcdematos/argocd-lab.git
     targetRevision: develop
     ref: values
   sources: []
