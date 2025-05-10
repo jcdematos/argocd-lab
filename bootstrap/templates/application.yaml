@@ -1,0 +1,32 @@
+{{- $global := .Values.global }}
+{{- range $app, $config := .Values.applications -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $config.name }}
+  namespace: {{ $global.argocd.namespace }}
+  {{- if $config.finalizers }}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  {{- end }}
+spec:
+  destination:
+    namespace: {{ $config.namespace }}
+    server: https://kubernetes.default.svc
+  sources:
+  - repoURL: {{ $config.helm.repository }}
+    chart: {{ $config.helm.chart }}
+    targetRevision: {{ $config.helm.revision }}
+    helm:
+      valueFiles:
+      - $values/values/{{ $app }}.yaml
+  - repoURL: {{ $config.helm.values.repository }}
+    targetRevision: {{ $config.helm.values.revision }}
+    ref: values
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+---
+{{ end }}

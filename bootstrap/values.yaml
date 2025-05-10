@@ -1,0 +1,29 @@
+global:
+  syncPolicy: {}
+  argocd:
+    namespace: argocd
+
+applications:
+  argo-cd:
+    name: "argocd"
+    namespace: "argocd"
+    finalizers: []
+#     - resources-finalizer.argocd.argoproj.io
+    helm:
+      repository: https://argoproj.github.io/argo-helm
+      chart: argo-cd
+      # or path
+      revision: 7.8.11
+      values:
+        repository: git@github.com:jcdematos/argocd-lab.git
+        revision: develop
+  argo-rollouts:
+    name: "argo-rollouts"
+    namespace: "argocd"
+    helm:
+      repository: https://argoproj.github.io/argo-helm
+      chart: argo-rollouts
+      revision: 2.38.2
+      values:
+        repository: git@github.com:jcdematos/argocd-lab.git
+        revision: develop
