@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bootstrap
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  source:
+    path: bootstrap
+    repoURL: git@github.com:jcdematos/argocd-lab.git
+    targetRevision: develop
+    helm:
+      valueFiles:
+        - values.yaml
+  sources: []
+  project: default
