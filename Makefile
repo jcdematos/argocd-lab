@@ -14,12 +14,12 @@ cluster-create:
 	linode-cli lke cluster-create --label argocd-labs --region br-gru --k8s_version 1.32 --node_pools.type g6-standard-1 --node_pools.count 2
 
 cluster-delete:
-	linode-cli lke cluster-delete $(CLUSTER)
+	@echo "Cluster not found"
 else
 cluster-create:
 	@echo "Cluster already exists with id: $(CLUSTER)"
 
 cluster-delete:
-	@echo "Cluster not found"
+	linode-cli lke cluster-delete $(CLUSTER)
 endif
 
