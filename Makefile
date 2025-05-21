@@ -8,6 +8,8 @@ cluster:
 cluster-kube:
 	@echo "Cluset id: $(CLUSTER)"
 	linode-cli lke kubeconfig-view $(CLUSTER) --text | grep -v kubeconfig | base64 -d > kube
+	@echo 'export KUBECONFIG=$(PWD)/kube' > .env
+	@echo 'Run source .env'
 
 ifeq ($(CLUSTER),)
 cluster-create:
@@ -23,3 +25,9 @@ cluster-delete:
 	linode-cli lke cluster-delete $(CLUSTER)
 endif
 
+
+argo:
+	@echo "Usage: make argo-[install]"
+
+argo-install:
+	helm -n argocd upgrade --install argocd argo/argo-cd --values values/argo-cd.yaml --create-namespace

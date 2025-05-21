@@ -1,5 +1,6 @@
 global:
-  syncPolicy: {}
+  syncPolicy:
+    automated: {}
   argocd:
     namespace: argocd
 
