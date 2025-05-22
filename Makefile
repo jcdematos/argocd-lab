@@ -31,3 +31,6 @@ argo:
 
 argo-install:
 	helm -n argocd upgrade --install argocd argo/argo-cd --values values/argo-cd.yaml --create-namespace
+
+test:
+	helm template argocd bootstrap/

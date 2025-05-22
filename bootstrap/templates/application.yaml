@@ -15,6 +15,7 @@ spec:
     server: https://kubernetes.default.svc
   sources:
   - repoURL: {{ $config.helm.repository }}
+    # make so that one can choose between chart or path
     chart: {{ $config.helm.chart }}
     targetRevision: {{ $config.helm.revision }}
     helm:
@@ -24,9 +25,18 @@ spec:
     targetRevision: {{ $config.helm.values.revision }}
     ref: values
   project: default
+  {{- if $global.sync.enabled }} # verify if enabled globally
+    {{- with $global.sync.syncPolicy }} # ensure a global configuration exists
+      {{- if hasKey $config "sync" }} # verify if has local configuration
+        # has local configuration
+        # use local if has, if syncPolicy is empty but enabled, use global
+      {{- else }}
+        # does not have local configuration
+        # use global
   syncPolicy:
-    automated:
-      prune: false
-      selfHeal: false
+{{ toYaml . | indent 4 }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
 ---
 {{ end }}

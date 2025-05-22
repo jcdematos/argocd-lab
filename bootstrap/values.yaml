@@ -1,6 +1,8 @@
 global:
-  syncPolicy:
-    automated: {}
+  sync:
+    enabled: true
+    syncPolicy: 
+      automated: {}
   argocd:
     namespace: argocd
 
@@ -14,5 +16,5 @@ applications:
       chart: argo-cd
       revision: 7.8.11
       values:
-        repository: git@github.com:jcdematos/argocd-lab.git
+        repository: https://github.com/jcdematos/argocd-lab.git
         revision: develop
