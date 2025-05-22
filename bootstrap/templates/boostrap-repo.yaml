@@ -1,8 +1,0 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Repository
-metadata:
-  name: argocd-lab-repo
-  namespace: argocd
-spec:
-  type: git
-  url: https://github.com/jcdematos/argocd-lab.git
