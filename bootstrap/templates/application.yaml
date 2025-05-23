@@ -15,8 +15,13 @@ spec:
     server: https://kubernetes.default.svc
   sources:
   - repoURL: {{ $config.helm.repository }}
-    # make so that one can choose between chart or path
+    {{- if hasKey $config.helm "chart" }}
     chart: {{ $config.helm.chart }}
+    {{- else }}
+      {{- if hasKey $config.helm "path" }}
+    path: {{ $config.helm.path }}
+      {{- end }}
+    {{- end }}
     # can i make the target revision optional?
     targetRevision: {{ $config.helm.revision }}
     # make a values file optional
