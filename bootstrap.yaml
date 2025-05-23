@@ -7,15 +7,15 @@ spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
-  source:
+  sources:
+  - repoURL: https://github.com/jcdematos/argocd-lab.git
     path: bootstrap
-    repoURL: https://github.com/jcdematos/argocd-lab.git
     targetRevision: develop
     helm:
       valueFiles:
-        - $values/examples/values.yaml
+      - $values/examples/values.yaml
   - repoURL: https://github.com/jcdematos/argocd-lab.git
+    path: .
     targetRevision: develop
     ref: values
-  sources: []
   project: default
