@@ -25,7 +25,7 @@ applications:
     helm:
       repository: https://charts.crossplane.io/stable
       chart: crossplane
-      revision: 1.20
+      revision: 1.20.0
       values:
         repository: https://github.com/jcdematos/argocd-lab.git
         revision: develop
