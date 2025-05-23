@@ -27,5 +27,8 @@ After installing the operador, apply the `boostrap.yaml` to create the repositor
 kubectl apply -f bootstrap/templates/bootstrap.yaml
 ```
 
+## Self Managed
 
+On this lab the bootstrap is itself managed through the bootstrap. For testing purposes you may with to disable tag, add a debug: true to the values.yaml file. The examples file already have this configuration.
 
+Then, you'll need to update and apply changes to the bootstrap.yaml yourself.
