@@ -17,7 +17,9 @@ spec:
   - repoURL: {{ $config.helm.repository }}
     # make so that one can choose between chart or path
     chart: {{ $config.helm.chart }}
+    # can i make the target revision optional?
     targetRevision: {{ $config.helm.revision }}
+    # make a values file optional
     helm:
       valueFiles:
       - $values/values/{{ $app }}.yaml
