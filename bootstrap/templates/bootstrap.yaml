@@ -13,6 +13,9 @@ spec:
     targetRevision: develop
     helm:
       valueFiles:
-        - examples/values.yaml
+        - $values/examples/values.yaml
+  - repoURL: https://github.com/jcdematos/argocd-lab.git
+    targetRevision: develop
+    ref: values
   sources: []
   project: default
