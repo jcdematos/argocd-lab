@@ -1,0 +1,31 @@
+global:
+  sync:
+    enabled: true
+    syncPolicy: 
+      automated: {}
+  argocd:
+    namespace: argocd
+
+applications:
+  argo-cd:
+    name: "argocd"
+    namespace: "argocd"
+    finalizers: []
+    helm:
+      repository: https://argoproj.github.io/argo-helm
+      chart: argo-cd
+      revision: 7.8.11
+      values:
+        repository: https://github.com/jcdematos/argocd-lab.git
+        revision: develop
+  crossplane:
+    name: "crossplane"
+    namespace: "crossplane"
+    finalizers: []
+    helm:
+      repository: https://charts.crossplane.io/stable
+      chart: crossplane
+      revision: 1.20
+      values:
+        repository: https://github.com/jcdematos/argocd-lab.git
+        revision: develop

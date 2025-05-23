@@ -13,6 +13,6 @@ spec:
     targetRevision: develop
     helm:
       valueFiles:
-        - values.yaml
+        - examples/values.yaml
   sources: []
   project: default
