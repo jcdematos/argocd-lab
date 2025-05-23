@@ -22,7 +22,7 @@ applications:
         revision: develop
   crossplane:
     name: "crossplane"
-    namespace: "crossplane"
+    namespace: "crossplane-system"
     finalizers: []
     helm:
       repository: https://charts.crossplane.io/stable
