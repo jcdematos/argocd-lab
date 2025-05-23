@@ -3,6 +3,8 @@ global:
     enabled: true
     syncPolicy: 
       automated: {}
+      syncOptions:
+        - CreateNamespace=true
   argocd:
     namespace: argocd
 
