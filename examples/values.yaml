@@ -36,6 +36,3 @@ applications:
       repository: https://github.com/jcdematos/argocd-lab.git
       path: extra/crossplane-config
       revision: develop
-      values:
-        repository: https://github.com/jcdematos/argocd-lab.git
-        revision: develop
