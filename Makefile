@@ -13,7 +13,7 @@ cluster-kube:
 
 ifeq ($(CLUSTER),)
 cluster-create:
-	linode-cli lke cluster-create --label argocd-labs --region br-gru --k8s_version 1.32 --node_pools.type g6-standard-1 --node_pools.count 2
+	linode-cli lke cluster-create --label argocd-labs --region us-mia --k8s_version 1.32 --node_pools.type g6-standard-1 --node_pools.count 2
 
 cluster-delete:
 	@echo "Cluster not found"
@@ -32,5 +32,11 @@ argo:
 argo-install:
 	helm -n argocd upgrade --install argocd argo/argo-cd --values values/argo-cd.yaml --create-namespace
 
+argo-secret:
+	kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
 test:
 	helm template argocd bootstrap/
+
+clean:
+	rm kube

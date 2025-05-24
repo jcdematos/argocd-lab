@@ -1,4 +1,4 @@
-global:
+gobal:
   sync:
     enabled: true
     syncPolicy: 
@@ -16,23 +16,31 @@ applications:
     helm:
       repository: https://argoproj.github.io/argo-helm
       chart: argo-cd
-      revision: 7.8.11
+      revision: 8.0.9
       values:
         repository: https://github.com/jcdematos/argocd-lab.git
         revision: develop
-  crossplane:
-    name: "crossplane"
-    namespace: "crossplane-system"
+# crossplane:
+#   name: "crossplane"
+#   namespace: "crossplane-system"
+#   finalizers: []
+#   helm:
+#     repository: https://charts.crossplane.io/stable
+#     chart: crossplane
+#     revision: 1.20.0
+# crossplane-config:
+#   name: "crossplane-config"
+#   namespace: "crossplane-system"
+#   finalizers: []
+#   helm:
+#     repository: https://github.com/jcdematos/argocd-lab.git
+#     path: extra/crossplane-config
+#     revision: develop
+  ingress-nginx:
+    name: "ingress-nginx"
+    namespace: "kube-system"
     finalizers: []
     helm:
-      repository: https://charts.crossplane.io/stable
-      chart: crossplane
-      revision: 1.20.0
-  crossplane-config:
-    name: "crossplane-config"
-    namespace: "crossplane-system"
-    finalizers: []
-    helm:
-      repository: https://github.com/jcdematos/argocd-lab.git
-      path: extra/crossplane-config
-      revision: develop
+      repository: https://kubernetes.github.io/ingress-nginx
+      chart: ingress-nginx
+      revision: 4.12.2
