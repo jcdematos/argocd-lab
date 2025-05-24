@@ -25,12 +25,14 @@ spec:
     # can i make the target revision optional?
     targetRevision: {{ $config.helm.revision }}
     # make a values file optional
+    {{- if hasKey $config.helm "values" }}
     helm:
       valueFiles:
       - $values/values/{{ $app }}.yaml
   - repoURL: {{ $config.helm.values.repository }}
     targetRevision: {{ $config.helm.values.revision }}
     ref: values
+    {{- end }}
   project: default
   {{- if $global.sync.enabled }} # verify if enabled globally
     {{- with $global.sync.syncPolicy }} # ensure a global configuration exists
