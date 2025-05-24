@@ -44,3 +44,11 @@ applications:
       repository: https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
       revision: 4.12.2
+  ingress-config:
+    name: "nginx-config"
+    namespace: "kube-system"
+    finalizers: []
+    helm:
+      repository: https://github.com/jcdematos/argocd-lab.git
+      path: extra/nginx-config
+      revision: develop
