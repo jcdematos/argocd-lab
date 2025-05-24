@@ -52,3 +52,14 @@ applications:
       repository: https://github.com/jcdematos/argocd-lab.git
       path: extra/nginx-config
       revision: develop
+  cert-manager:
+    name: "cert-manager"
+    namespace: "kube-system"
+    finalizers: []
+    helm:
+      repository: https://charts.jetstack.io
+      chart: cert-manager
+      revision: v1.17.2
+      values:
+        repository: https://github.com/jcdematos/argocd-lab.git
+        revision: develop
