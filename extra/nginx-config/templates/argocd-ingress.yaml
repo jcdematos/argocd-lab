@@ -4,14 +4,14 @@ metadata:
   name: argocd
   namespace: argocd
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - argocd.argocdlab.com
+    - argocd.jcdematos.com
   rules:
-  - host: argocd.argocdlab.com
+  - host: argocd.jcdematos.com
     http:
       paths:
       - pathType: Prefix
