@@ -10,6 +10,7 @@ spec:
   tls:
   - hosts:
     - argocd.jcdematos.com
+    secretName: jcdematos-tls
   rules:
   - host: argocd.jcdematos.com
     http:

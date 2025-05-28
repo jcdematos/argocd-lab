@@ -63,3 +63,12 @@ applications:
       values:
         repository: https://github.com/jcdematos/argocd-lab.git
         revision: develop
+  cert-manager-config:
+    name: "cert-manager-config"
+    namespace: "kube-system"
+    finalizers: []
+    helm:
+    helm:
+      repository: https://github.com/jcdematos/argocd-lab.git
+      path: extra/cert-manager-config
+      revision: develop

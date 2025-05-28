@@ -35,6 +35,9 @@ argo-install:
 argo-secret:
 	kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
+argo-bootstrap:
+	kubectl apply -f bootstrap/templates/bootstrap.yaml
+
 test:
 	helm template argocd bootstrap/
 
