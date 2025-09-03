@@ -36,39 +36,39 @@ applications:
 #     repository: https://github.com/jcdematos/argocd-lab.git
 #     path: extra/crossplane-config
 #     revision: develop
-  ingress-nginx:
-    name: "ingress-nginx"
-    namespace: "kube-system"
-    finalizers: []
-    helm:
-      repository: https://kubernetes.github.io/ingress-nginx
-      chart: ingress-nginx
-      revision: 4.12.2
-  ingress-config:
-    name: "nginx-config"
-    namespace: "kube-system"
-    finalizers: []
-    helm:
-      repository: https://github.com/jcdematos/argocd-lab.git
-      path: extra/nginx-config
-      revision: develop
-  cert-manager:
-    name: "cert-manager"
-    namespace: "kube-system"
-    finalizers: []
-    helm:
-      repository: https://charts.jetstack.io
-      chart: cert-manager
-      revision: v1.17.2
-      values:
-        repository: https://github.com/jcdematos/argocd-lab.git
-        revision: develop
-  cert-manager-config:
-    name: "cert-manager-config"
-    namespace: "kube-system"
-    finalizers: []
-    helm:
-    helm:
-      repository: https://github.com/jcdematos/argocd-lab.git
-      path: extra/cert-manager-config
-      revision: develop
+# ingress-nginx:
+#   name: "ingress-nginx"
+#   namespace: "kube-system"
+#   finalizers: []
+#   helm:
+#     repository: https://kubernetes.github.io/ingress-nginx
+#     chart: ingress-nginx
+#     revision: 4.12.2
+# ingress-config:
+#   name: "nginx-config"
+#   namespace: "kube-system"
+#   finalizers: []
+#   helm:
+#     repository: https://github.com/jcdematos/argocd-lab.git
+#     path: extra/nginx-config
+#     revision: develop
+# cert-manager:
+#   name: "cert-manager"
+#   namespace: "kube-system"
+#   finalizers: []
+#   helm:
+#     repository: https://charts.jetstack.io
+#     chart: cert-manager
+#     revision: v1.17.2
+#     values:
+#       repository: https://github.com/jcdematos/argocd-lab.git
+#       revision: develop
+# cert-manager-config:
+#   name: "cert-manager-config"
+#   namespace: "kube-system"
+#   finalizers: []
+#   helm:
+#   helm:
+#     repository: https://github.com/jcdematos/argocd-lab.git
+#     path: extra/cert-manager-config
+#     revision: develop
